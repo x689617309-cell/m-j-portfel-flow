@@ -2,95 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* BudżetFlow — iOS 18 / Apple Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Apple system colors as HSL */
+    --background: 240 24% 96%;          /* #F2F2F7 */
+    --foreground: 0 0% 0%;              /* #000000 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;                  /* #FFFFFF */
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 211 100% 50%;            /* #007AFF */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 24% 96%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 24% 96%;
+    --muted-foreground: 240 6% 25% / 0.6;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 211 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 4 100% 59%;          /* #FF3B30 */
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --success: 142 71% 49%;             /* #34C759 */
+    --warning: 32 100% 50%;             /* #FF9500 */
+    --pink: 339 100% 57%;               /* #FF2D55 */
+    --indigo: 240 67% 60%;              /* #5856D6 */
+    --purple: 281 64% 59%;              /* #AF52DE */
+    --teal: 197 78% 52%;                /* #32ADE6 */
+    --orange-red: 16 100% 60%;          /* #FF6B35 */
+    --gray-system: 240 2% 56%;          /* #8E8E93 */
 
-    --radius: 0.5rem;
+    --border: 240 6% 25% / 0.12;
+    --input: 240 6% 25% / 0.12;
+    --ring: 211 100% 50%;
+
+    --radius: 12px;
+
+    --label-secondary: 240 6% 25% / 0.6;
+    --label-tertiary: 240 6% 25% / 0.3;
 
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 240 6% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 6% 10%;
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -98,8 +64,73 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
+  html, body, #root {
+    height: 100%;
+  }
   body {
     @apply bg-background text-foreground;
+    font-family: -apple-system, "SF Pro Display", "SF Pro Text", BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  button {
+    -webkit-tap-highlight-color: transparent;
   }
 }
+
+@layer components {
+  .ios-card {
+    @apply bg-card rounded-[12px];
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .ios-blur-top {
+    background: rgba(242,242,247,0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid hsl(var(--border));
+  }
+  .ios-blur-bottom {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-top: 1px solid hsl(var(--border));
+  }
+  .ios-separator {
+    background: hsl(var(--border));
+    height: 1px;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .tap-scale {
+    transition: transform 100ms ease;
+  }
+  .tap-scale:active {
+    transform: scale(0.96);
+  }
+  .ios-large-title {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .ios-section-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .ios-body { font-size: 17px; font-weight: 400; }
+  .ios-caption { font-size: 13px; font-weight: 400; color: rgba(60,60,67,0.6); }
+  .ios-amount { font-size: 44px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .ios-group-header {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: rgba(60,60,67,0.6);
+    padding: 0 16px 6px 16px;
+  }
+}
+
+/* Hide scrollbars in iOS feel */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
